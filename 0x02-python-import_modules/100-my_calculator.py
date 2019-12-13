@@ -20,7 +20,7 @@ if __name__ == "__main__":
         print("{:d} * {:d} = {:d}".format(num1, num2, num1 * num2))
         exit(0)
     elif argv[2] == '/':
-        print("{:d} / {:d} = {:d}".format(num1, num2, num1 / num2))
+        print("{:d} / {:d} = {}".format(num1, num2, num1 / num2))
         exit(0)
     else:
         print("Unknown operator. Available operators: +, -, * and /")
