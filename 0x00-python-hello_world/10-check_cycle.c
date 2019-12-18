@@ -13,6 +13,7 @@
 int check_cycle(listint_t *list)
 {
 	listint_t *tmp, *fast_tmp;
+	int cnt;
 
 	if (list == NULL)
 	{
@@ -20,6 +21,11 @@ int check_cycle(listint_t *list)
 	}
 	tmp = list;
 	fast_tmp = list;
+	for (cnt = 0; tmp->next; cnt++)
+	if (cnt == 1)
+	{
+		return (0);
+	}
 	while (list != NULL)
 	{
 		fast_tmp = fast_tmp->next;
