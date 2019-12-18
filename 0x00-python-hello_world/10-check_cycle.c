@@ -13,19 +13,17 @@
 int check_cycle(listint_t *list)
 {
 	listint_t *tmp;
-	int cnt;
 
 	if (list == NULL)
 	{
 		return (0);
 	}
-	for (cnt = 0; list->next == NULL; cnt++)
-	if (cnt == 0)
+	if (list->next == NULL)
 	{
 		return (0);
 	}
 	tmp = list;
-	while (list != NULL)
+	while (list != NULL && list->next != NULL)
 	{
 		tmp = tmp->next;
 		list = list->next->next;
