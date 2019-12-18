@@ -12,18 +12,19 @@
 
 int check_cycle(listint_t *list)
 {
-	listint_t *tmp;
+	listint_t *tmp, *fast_tmp;
 
 	if (list == NULL)
 	{
 		return (0);
 	}
 	tmp = list;
+	fast_tmp = list;
 	while (list != NULL)
 	{
-		tmp = tmp->next;
+		fast_tmp = fast_tmp->next;
 		list = list->next->next;
-		if (tmp == list)
+		if (tmp == list || list == fast_tmp || tmp == fast_tmp)
 		{
 			return (1);
 		}
