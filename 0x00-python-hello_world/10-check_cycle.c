@@ -19,13 +19,13 @@ int check_cycle(listint_t *list)
 	{
 		return (0);
 	}
-	tmp = list;
-	fast_tmp = list;
-	for (cnt = 0; tmp->next; cnt++)
-	if (cnt == 1)
+	for (cnt = 0; list->next == NULL; cnt++)
+	if (cnt == 0)
 	{
 		return (0);
 	}
+	tmp = list;
+	fast_tmp = list;
 	while (list != NULL)
 	{
 		fast_tmp = fast_tmp->next;
