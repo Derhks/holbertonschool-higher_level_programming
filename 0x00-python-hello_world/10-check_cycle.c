@@ -12,7 +12,7 @@
 
 int check_cycle(listint_t *list)
 {
-	listint_t *tmp;
+	listint_t *tmp, *tmp2;
 	int cnt;
 
 	if (list == NULL)
@@ -25,11 +25,12 @@ int check_cycle(listint_t *list)
 		return (0);
 	}
 	tmp = list;
+	tmp2 = list;
 	while (list != NULL)
 	{
-		tmp = tmp->next;
+		tmp2 = tmp2->next;
 		list = list->next->next;
-		if (tmp == list)
+		if (tmp == list || tmp2 == list || tmp2 == tmp)
 		{
 			return (1);
 		}
