@@ -1,0 +1,52 @@
+The ``say_my_name`` module
+======================
+
+Using ``say_my_name``
+-------------------
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+>>> say_my_name([[17, str, 07], [11, 12, 13]], 10)
+Traceback (most recent call last):
+...
+SyntaxError: invalid token
+
+>>> say_my_name("string", 7)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+
+>>> say_my_name(7, "Nothing")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+>>> say_my_name([[17, 25, 07], [11, 12, 13]], 0)
+Traceback (most recent call last):
+...
+SyntaxError: invalid token
+
+>>> say_my_name([[17, 25, 7], [11, 12, 13]], 0)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+>>> say_my_name(07, 7.07)
+Traceback (most recent call last):
+...
+SyntaxError: invalid token
+
+>>> say_my_name(17, )
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+>>> say_my_name(, )
+Traceback (most recent call last):
+...
+SyntaxError: invalid syntax
+
+>>> say_my_name(17, 07)
+Traceback (most recent call last):
+...
+SyntaxError: invalid token

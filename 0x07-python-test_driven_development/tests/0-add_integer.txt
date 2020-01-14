@@ -1,0 +1,34 @@
+The ``add_integer`` module
+======================
+
+Using ``add_integer``
+-------------------
+
+>>> add_integer = __import__('0-add_integer').add_integer
+
+>>> add_integer(1, 10)
+11
+>>> add_integer("string", 7)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+>>> add_integer(7, "Nothing")
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+>>> add_integer(7.7, 17)
+24
+>>> add_integer(07, 7.07)
+Traceback (most recent call last):
+...
+SyntaxError: invalid token
+>>> add_integer(17, )
+115
+>>> add_integer(, )
+Traceback (most recent call last):
+...
+SyntaxError: invalid syntax
+>>> add_integer(17, 07)
+Traceback (most recent call last):
+...
+SyntaxError: invalid token

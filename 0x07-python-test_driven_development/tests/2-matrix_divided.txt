@@ -1,0 +1,52 @@
+The ``matrix_divided`` module
+======================
+
+Using ``matrix_divided``
+-------------------
+
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+>>> matrix_divided([[17, str, 07], [11, 12, 13]], 10)
+Traceback (most recent call last):
+...
+SyntaxError: invalid token
+
+>>> matrix_divided("string", 7)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> matrix_divided(7, "Nothing")
+Traceback (most recent call last):
+...
+TypeError: 'int' object is not iterable
+
+>>> matrix_divided([[17, 25, 07], [11, 12, 13]], 0)
+Traceback (most recent call last):
+...
+SyntaxError: invalid token
+
+>>> matrix_divided([[17, 25, 7], [11, 12, 13]], 0)
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero
+
+>>> matrix_divided(07, 7.07)
+Traceback (most recent call last):
+...
+SyntaxError: invalid token
+
+>>> matrix_divided(17, )
+Traceback (most recent call last):
+...
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+>>> matrix_divided(, )
+Traceback (most recent call last):
+...
+SyntaxError: invalid syntax
+
+>>> matrix_divided(17, 07)
+Traceback (most recent call last):
+...
+SyntaxError: invalid token
