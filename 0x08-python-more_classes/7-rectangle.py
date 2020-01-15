@@ -7,6 +7,15 @@ class Rectangle:
     print_symbol = "#"
 
     def __init__(self, width=0, height=0):
+        if isinstance(width, int) is False:
+            raise TypeError("width must be an integer")
+        if width < 0:
+            raise ValueError("width must be >= 0")
+        if isinstance(height, int) is False:
+            raise TypeError("height must be an integer")
+        if height < 0:
+            raise ValueError("height must be >= 0")
+
         self.__height = height  # This is a private instance attribute
         self.__width = width  # This is a private instance attribute
         type(self).number_of_instances += 1
