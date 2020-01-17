@@ -19,5 +19,5 @@ def add_integer(a, b=98):
         num_2 = int(b)
     else:
         raise TypeError("b must be an integer")
-        b = int(b)
-    return num_1 + num_2
+    if isinstance(num_1, int) and isinstance(num_2, int):
+        return num_1 + num_2
