@@ -11,13 +11,13 @@ def add_integer(a, b=98):
     returns the sum of the two digits
     """
 
-    if isinstance(a, (int, float)) is False:
+    if isinstance(a, (int, float)) is True:
+        num_1 = int(a)
+    else:
         raise TypeError("a must be an integer")
-    if isinstance(b, (int, float)) is False:
+    if isinstance(b, (int, float)) is True:
+        num_2 = int(b)
+    else:
         raise TypeError("b must be an integer")
-    if isinstance(a, float):
-        a = int(a)
-    if isinstance(b, float):
         b = int(b)
-    addition = a + b
-    return addition
+    return num_1 + num_2
