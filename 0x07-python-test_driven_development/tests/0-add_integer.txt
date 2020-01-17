@@ -32,3 +32,43 @@ SyntaxError: invalid syntax
 Traceback (most recent call last):
 ...
 SyntaxError: invalid token
+>>> add_integer(None, 17)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+>>> add_integer(17, None)
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+>>> add_integer(float('nan'))
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
+>>> add_integer(float('nan'), 17)
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
+>>> add_integer(17, float('nan'))
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
+>>> add_integer(float('nan'), float('nan'))
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
+>>> add_integer(float('inf'))
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+>>> add_integer(float('inf'), 17)
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+>>> add_integer(17, float('inf'))
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+>>> add_integer(float('inf'), float('inf'))
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
