@@ -18,12 +18,6 @@ def matrix_divided(matrix, div):
     message_2 = "Each row of the matrix must have the same size"
     new_matrix = [matrix_list[:] for matrix_list in matrix]
 
-    if div == 0:
-        raise ZeroDivisionError("division by zero")
-
-    if isinstance(div, (int, float)) is False:
-        raise TypeError("div must be a number")
-
     if isinstance(matrix, list) is False:
         raise TypeError(message_1)
 
@@ -34,6 +28,11 @@ def matrix_divided(matrix, div):
             for numbers in matrix_list:
                 if isinstance(numbers, (int, float)) is False:
                     raise TypeError(message_1)
+        if isinstance(div, (int, float)) is False:
+            raise TypeError("div must be a number")
+        if div == 0:
+            raise ZeroDivisionError("division by zero")
+
 
     if isinstance(matrix, list) is True:
         if len(matrix) == 2:
