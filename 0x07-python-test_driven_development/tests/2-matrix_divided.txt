@@ -6,6 +6,11 @@ Using ``matrix_divided``
 
 >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
+>>> matrix_divided([[17, "25", 7], [11, 12, 13]], 0)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
 >>> matrix_divided([[17, str, 07], [11, 12, 13]], 10)
 Traceback (most recent call last):
 ...
