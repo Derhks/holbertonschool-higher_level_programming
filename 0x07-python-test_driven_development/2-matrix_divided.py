@@ -33,7 +33,6 @@ def matrix_divided(matrix, div):
         if div == 0:
             raise ZeroDivisionError("division by zero")
 
-
     if isinstance(matrix, list) is True:
         if len(matrix) == 2:
             if len(matrix[0]) != len(matrix[1]):
