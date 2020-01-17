@@ -50,3 +50,6 @@ SyntaxError: invalid syntax
 Traceback (most recent call last):
 ...
 SyntaxError: invalid token
+
+>>> say_my_name("Julian", "Sandoval")
+My name is Julian Sandoval
