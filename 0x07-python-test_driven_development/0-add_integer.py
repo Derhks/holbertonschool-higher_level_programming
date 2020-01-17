@@ -10,10 +10,14 @@ def add_integer(a, b=98):
     """This method sum two digits and
     returns the sum of the two digits
     """
+
     if isinstance(a, (int, float)) is False:
         raise TypeError("a must be an integer")
-    elif isinstance(b, (int, float)) is False:
+    if isinstance(b, (int, float)) is False:
         raise TypeError("b must be an integer")
-    else:
-        addition = int(a) + int(b)
+    if isinstance(a, float):
+        a = int(a)
+    if isinstance(b, float):
+        b = int(b)
+    addition = a + b
     return addition
