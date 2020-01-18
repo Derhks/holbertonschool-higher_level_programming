@@ -53,3 +53,6 @@ SyntaxError: invalid token
 
 >>> say_my_name("Julian", "Sandoval")
 My name is Julian Sandoval
+
+>>> say_my_name("", "")
+My name is  
