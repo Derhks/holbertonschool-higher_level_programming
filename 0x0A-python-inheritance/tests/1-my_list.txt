@@ -1,0 +1,41 @@
+The ``MyList`` module
+======================
+
+Using ``MyList``
+-------------------
+
+>>> MyList = __import__('1-my_list').MyList
+
+>>> my_list = MyList(17)
+Traceback (most recent call last):
+...
+TypeError: 'int' object is not iterable
+
+>>> my_list = MyList(-17)
+Traceback (most recent call last):
+...
+TypeError: 'int' object is not iterable
+
+>>> my_list = MyList(17, 7)
+Traceback (most recent call last):
+...
+TypeError: list() takes at most 1 argument (2 given)
+
+>>> my_list=MyList()
+>>> my_list.append(17)
+>>> my_list.append(4)
+>>> my_list.append(21)
+>>> my_list.append(3)
+>>> my_list.append(7)
+>>> my_list.print_sorted()
+[3, 4, 7, 17, 21]
+
+>>> my_list=MyList()
+>>> my_list.append("17")
+>>> my_list.append(7)
+>>> my_list.append(21)
+>>> my_list.append(17)
+>>> my_list.print_sorted()
+Traceback (most recent call last):
+...
+TypeError: unorderable types: int() < str()
