@@ -1,0 +1,39 @@
+The ``BaseGeometry`` module
+======================
+
+Using ``BaseGeometry``
+-------------------
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+>>> base = BaseGeometry(5)
+Traceback (most recent call last):
+...
+TypeError: object() takes no parameters
+
+>>> base.area(5)
+Traceback (most recent call last):
+...
+NameError: name 'base' is not defined
+
+>>> bg.integer_validator("julian", 17)
+Traceback (most recent call last):
+...
+NameError: name 'bg' is not defined
+
+>>> base.integer_validator("julian", 1e234567890)
+Traceback (most recent call last):
+...
+NameError: name 'base' is not defined
+
+>>> base = BaseGeometry(5, 17)
+Traceback (most recent call last):
+...
+TypeError: object() takes no parameters
+
+>>> base = BaseGeometry()
+>>> base = BaseGeometry(5, 17)
+Traceback (most recent call last):
+...
+TypeError: object() takes no parameters
+
