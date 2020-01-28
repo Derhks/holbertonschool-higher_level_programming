@@ -36,15 +36,15 @@ class Base:
         new_list = []
         filename = "{}.json".format(cls.__name__)
 
-        if list_objs is None or list_objs == '\0':
+        if list_objs is None:
             with open(filename, mode="w", encoding="utf-8") as file:
-                file.write(json.dumps(new_list))
+                file.write(new_list)
         else:
             for objs in list_objs:
                 new_list.append(objs.to_dictionary())
 
             with open(filename, mode="w", encoding="utf-8") as file:
-                file.write(json.dumps(new_list))
+                file.write(str(new_list))
 
     @staticmethod
     def from_json_string(json_string):
