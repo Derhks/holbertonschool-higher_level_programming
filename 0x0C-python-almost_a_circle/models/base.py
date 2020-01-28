@@ -26,8 +26,7 @@ class Base:
         if list_dictionaries is None or list_dictionaries == '\0':
             return "[]"
         else:
-            return json.dumps(list_dictionaries, sort_keys=True,
-                              ensure_ascii=False)
+            return json.dumps(list_dictionaries, ensure_ascii=False)
 
     @classmethod
     def save_to_file(cls, list_objs):
