@@ -26,7 +26,7 @@ class Base:
         if list_dictionaries is None or list_dictionaries == '\0':
             return "[]"
         else:
-            return json.dumps(list_dictionaries, ensure_ascii=False)
+            return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
@@ -36,7 +36,7 @@ class Base:
         new_list = []
         filename = "{}.json".format(cls.__name__)
 
-        if list_objs is None:
+        if list_objs is None or list_objs == '\0':
             with open(filename, mode="w", encoding="utf-8") as file:
                 file.write(json.dumps(new_list, ensure_ascii=False))
         else:
