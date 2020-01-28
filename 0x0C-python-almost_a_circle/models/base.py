@@ -38,13 +38,13 @@ class Base:
 
         if list_objs is None:
             with open(filename, mode="w", encoding="utf-8") as file:
-                file.write(new_list)
+                file.write("[]")
         else:
             for objs in list_objs:
                 new_list.append(objs.to_dictionary())
 
             with open(filename, mode="w", encoding="utf-8") as file:
-                file.write(str(new_list))
+                file.write(cls.to_json_string(new_list))
 
     @staticmethod
     def from_json_string(json_string):
