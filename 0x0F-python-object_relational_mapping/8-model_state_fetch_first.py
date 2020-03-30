@@ -17,12 +17,11 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    query = session.query(State).filter(State.id == 1)
-    states = query.all()
-
-    if not State.id:
+    query = session.query(State).filter(State.id)
+    states = query.first()
+    if not states:
         print("{:s}".format("Nothing"))
-    for state in states:
-        print("{:d}: {:s}".format(state.id, state.name))
+    else:
+        print("{:d}: {:s}".format(states.id, states.name))
 
     session.close()
