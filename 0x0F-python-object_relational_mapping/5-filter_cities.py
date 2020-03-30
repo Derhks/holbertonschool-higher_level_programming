@@ -18,7 +18,7 @@ if __name__ == "__main__":
     # prepare a cursor object using cursor() method
     cur = db.cursor()
 
-    cur.execute("SELECT cities.name FROM cities, states\
+    cur.execute("SELECT cities.name FROM cities JOIN states\
                 WHERE states.name = %s AND cities.state_id = states.id\
                 ORDER BY cities.id ASC", (state_name, ))
     rows = cur.fetchall()
