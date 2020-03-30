@@ -2,6 +2,7 @@
 from sys import argv
 from sqlalchemy import (create_engine)
 from model_state import Base, State
+from sqlalchemy.orm import sessionmaker
 
 
 if __name__ == "__main__":
@@ -14,15 +15,8 @@ if __name__ == "__main__":
                            encoding='latin1', echo=True, pool_pre_ping=True)
     Base.metadata.create_all(engine)
 
-    with engine.connect() as connection:
-        result = connection.execute("SELECT states.id, states.name\
-                                    FROM states ORDER BY states.id ASC")
-        for row in result:
-            cnt = 0
-            for items in row:
-                if cnt == 0:
-                    print("{}".format(items), end=": ")
-                else:
-                    print("{}".format(items), end="")
-                cnt += 1
-            print()
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    for instance in session.query(State).order_by(State.id):
+        print("{0}: {1}".format(instance.id, instance.name))
