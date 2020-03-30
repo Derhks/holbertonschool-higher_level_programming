@@ -10,7 +10,7 @@ if __name__ == "__main__":
     password = argv[2]
     db_name = argv[3]
 
-    engine = create_engine("mysql+mysqldb://{0}:{1}@localhost:3306/{2}".
+    engine = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}".
                            format(username, password, db_name),
                            encoding='latin1', echo=True, pool_pre_ping=True)
 
@@ -21,6 +21,6 @@ if __name__ == "__main__":
     states = query.all()
 
     for state in states:
-        print("{0}: {1}".format(state.id, state.name))
+        print("{:d}: {:s}".format(state.id, state.name))
 
     session.close()
