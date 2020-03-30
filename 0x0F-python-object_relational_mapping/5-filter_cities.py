@@ -18,15 +18,15 @@ if __name__ == "__main__":
     # prepare a cursor object using cursor() method
     cur = db.cursor()
 
-    cur.execute("SELECT cities.name FROM cities\
-                JOIN states ON states.id = cities.state_id\
-                WHERE states.name = %s\
+    cur.execute("SELECT cities.name FROM cities, states\
+                WHERE states.name = %s AND states.id = cities.state_id\
                 ORDER BY cities.id ASC", (state_name, ))
     rows = cur.fetchall()
+
     cnt = 0
     for row in rows:
         for city in row:
-            if cnt <= len(row):
+            if cnt < len(rows) - 1:
                 print("{:s}".format(city), end=", ")
             else:
                 print("{:s}".format(city), end="")
