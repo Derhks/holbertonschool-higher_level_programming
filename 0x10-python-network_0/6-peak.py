@@ -11,9 +11,7 @@ def find_peak(list_of_integers):
                 value = list_of_integers[cnt]
                 for cnt2 in range(len(list_of_integers)):
                     if list_of_integers[cnt2] > value:
-                        max_value = list_of_integers[cnt2]
-                        if max_value > value:
-                            value = max_value
+                        value = list_of_integers[cnt2]
         return value
     else:
         return None
