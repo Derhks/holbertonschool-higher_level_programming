@@ -3,7 +3,11 @@
 
 def find_peak(list_of_integers, itr=0, value=0, rev_itr=0):
     """This method find the peak of the list"""
-    if len(list_of_integers) > 0:
+    if len(list_of_integers) == 1:
+        return list_of_integers[0]
+    if len(list_of_integers) == 2:
+        return max(list_of_integers)
+    if len(list_of_integers) > 2:
         rev_itr = len(list_of_integers) - 1
         value = value
         if list_of_integers[rev_itr] > value:
