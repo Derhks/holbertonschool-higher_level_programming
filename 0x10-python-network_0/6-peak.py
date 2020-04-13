@@ -10,7 +10,7 @@ def find_peak(list_of_integers, itr=0, value=0, rev_itr=0):
             value = list_of_integers[rev_itr]
         if list_of_integers[itr] > value:
             value = list_of_integers[itr]
-        if itr < len(list_of_integers) - 1:
+        if itr <= len(list_of_integers)/2:
             return find_peak(list_of_integers, itr + 1, value, rev_itr - 1)
         return value
     else:
