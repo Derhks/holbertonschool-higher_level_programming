@@ -1,21 +1,31 @@
 #!/usr/bin/python3
+import yappi
+"""
+Function that finds a peak in a list of unsorted integers.
+"""
 
-
-def find_peak(list_of_integers, itr=0, value=0, rev_itr=0):
-    """This method find the peak of the list"""
-    if len(list_of_integers) == 1:
-        return list_of_integers[0]
-    if len(list_of_integers) == 2:
-        return max(list_of_integers)
-    if len(list_of_integers) > 2:
-        rev_itr = len(list_of_integers) - 1
-        value = value
-        if list_of_integers[rev_itr] > value:
-            value = list_of_integers[rev_itr]
-        if list_of_integers[itr] > value:
-            value = list_of_integers[itr]
-        if itr <= len(list_of_integers)/2:
-            return find_peak(list_of_integers, itr + 1, value, rev_itr - 1)
-        return value
+def find_peak(list_of_integers):
+    if list_of_integers:
+        lo = 0
+        hi = len(list_of_integers)
+        while lo < hi:
+            mi = lo + (hi - lo) // 2
+            mi = int(mi)
+            if hi == 1:
+                return list_of_integers[0]
+            if hi == 2:
+                return max(list_of_integers)
+            if list_of_integers[mi] >= list_of_integers[mi - 1] and\
+               list_of_integers[mi] >= list_of_integers[mi + 1]:
+                return list_of_integers[mi]
+            if mi > 0 and list_of_integers[mi] < list_of_integers[mi + 1]:
+                return find_peak(list_of_integers[mi:])
+            if mi > 0 and list_of_integers[mi] < list_of_integers[mi - 1]:
+                return find_peak(list_of_integers[:mi])
     else:
         return None
+
+yappi.start() # Iniciamos la monitorización de yappi
+find_peak([1, 2, 6, 4, 3]) # Llamada a la funcion de ejemplo
+yappi.get_func_stats().print_all() # Mostramos las stats de ejecución
+yappi.stop() # Paramos la monitorización de yappi
