@@ -5,5 +5,5 @@ import requests
 if __name__ == "__main__":
     webpage = requests.get('https://intranet.hbtn.io/status')
     print("Body response:")
-    print("    - type: {}".format(type(webpage.text)))
-    print("    - content: {:s}".format(webpage.text))
+    print("\t- type: {}".format(type(webpage.text)))
+    print("\t- content: {}".format(webpage.text))
