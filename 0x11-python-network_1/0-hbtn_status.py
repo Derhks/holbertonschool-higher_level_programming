@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import urllib.request
+"""What's my status?"""
 
 
 if __name__ == "__main__":
