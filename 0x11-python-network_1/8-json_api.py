@@ -15,5 +15,5 @@ if __name__ == "__main__":
         if webpage.json():
             print("[{}] {}".format(webpage.json().get('id'),
                                    webpage.json().get('name')))
-    except:
+    except ValueError:
         print("Not a valid JSON")
