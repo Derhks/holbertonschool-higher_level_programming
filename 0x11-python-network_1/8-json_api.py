@@ -10,7 +10,7 @@ if __name__ == "__main__":
     try:
         webpage = requests.post('http://0.0.0.0:5000/search_user',
                                 data={'q': post})
-        if len(webpage.text) < 4:
+        if not webpage.json():
             print("No result")
         if webpage.json():
             print("[{}] {}".format(webpage.json().get('id'),
