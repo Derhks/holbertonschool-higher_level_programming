@@ -1,17 +1,16 @@
 #!/usr/bin/node
-let total = 1;
-function factorial (numb) {
-  if (numb === 0) {
+const intRegex = /^[0-9]*?.[0-9]*$/;
+const a = process.argv[2];
+
+function factorial (a) {
+  if (a === 0) {
     return 1;
   }
-  if (isNaN(numb)) {
-    return 1;
-  }
-  if (/^[0-9]*?.[0-9]*$/.test(numb)) {
-    total = total * numb;
-    factorial(numb - 1);
-    return total;
-  }
+  return a * factorial(a - 1);
 }
-const numb = process.argv[2];
-console.log(factorial(numb));
+
+if (intRegex.test(a)) {
+  console.log(factorial(parseInt(a)));
+} else {
+  console.log(1);
+}
