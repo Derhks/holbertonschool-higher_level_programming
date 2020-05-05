@@ -13,6 +13,7 @@ let fact = 0;
 if (numb) {
   fact = factorial(numb);
   console.log(fact);
-} else {
+}
+if (isNaN(parseInt(process.argv[2]))) {
   console.log(1);
 }
