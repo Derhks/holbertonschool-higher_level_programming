@@ -10,10 +10,9 @@ function factorial (numb) {
 }
 const numb = parseInt(process.argv[2]);
 let fact = 0;
-if (numb) {
+if (isNaN(numb)) {
+  console.log(1);
+} else {
   fact = factorial(numb);
   console.log(fact);
-}
-if (isNaN(parseInt(process.argv[2]))) {
-  console.log(1);
 }
