@@ -7,7 +7,7 @@ function factorial (numb) {
   if (isNaN(numb)) {
     return 1;
   }
-  if (/^\d+$/.test(numb)) {
+  if (/^[0-9]*?.[0-9]*$/.test(numb)) {
     total = total * numb;
     factorial(numb - 1);
     return total;
