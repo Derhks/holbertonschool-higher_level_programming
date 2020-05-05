@@ -3,13 +3,15 @@ let total = 1;
 function factorial (numb) {
   if (numb === 0) {
     return 1;
-  } else if (isNaN(numb)) {
+  }
+  if (isNaN(numb)) {
     return 1;
-  } else {
+  }
+  if (/^\d+$/.test(numb)) {
     total = total * numb;
     factorial(numb - 1);
     return total;
   }
 }
-const numb = parseInt(process.argv[2]);
+const numb = process.argv[2];
 console.log(factorial(numb));
