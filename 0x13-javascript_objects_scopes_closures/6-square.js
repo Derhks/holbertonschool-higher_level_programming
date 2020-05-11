@@ -5,6 +5,9 @@ module.exports = class Square extends squareV1 {
   charPrint (c) {
     let cnt = 0;
     let print = '';
+    if (c === undefined) {
+      c = 'X';
+    }
     if (c === 'C') {
       for (cnt = 0; cnt < this.width; cnt++) {
         print += c;
