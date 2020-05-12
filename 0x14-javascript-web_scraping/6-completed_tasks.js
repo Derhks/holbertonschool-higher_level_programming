@@ -6,7 +6,11 @@ request(process.argv[2], (error, response, body) => {
     const listBody = JSON.parse(body);
     const lenList = listBody.length;
     const dictTasks = {};
-    for (let itr1 = 1; itr1 <= 10; itr1++) {
+    let maxId = 0;
+    for (let itr2 = 0; itr2 < lenList; itr2++) {
+      maxId = listBody[itr2].userId;
+    }
+    for (let itr1 = 1; itr1 <= maxId; itr1++) {
       let cnt = 0;
       for (let itr2 = 0; itr2 < lenList; itr2++) {
         if (listBody[itr2].userId === itr1) {
