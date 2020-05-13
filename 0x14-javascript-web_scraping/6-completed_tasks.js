@@ -2,26 +2,21 @@
 const request = require('request');
 
 request(process.argv[2], (error, response, body) => {
-  if (error === null) {
+  if (error) {
+    console.error(error);
+  } else {
     const listBody = JSON.parse(body);
     const dictTasks = {};
-    let maxId = 0;
-    for (let itr2 = 0; itr2 < listBody.length; itr2++) {
-      maxId = listBody[itr2].userId;
-    }
-    for (let itr1 = 1; itr1 <= maxId; itr1++) {
-      let cnt = 0;
-      for (let itr2 = 0; itr2 < listBody.length; itr2++) {
-        if (listBody[itr2].userId === itr1) {
-          if (listBody[itr2].completed === true) {
-            cnt++;
-          }
+
+    for (let itr = 0; itr < listBody.length; itr++) {
+      if (listBody[itr].completed === true) {
+        if (dictTasks[listBody[itr].userId] >= 1) {
+          dictTasks[listBody[itr].userId] += 1;
+        } else {
+          dictTasks[listBody[itr].userId] = 1;
         }
       }
-      dictTasks[itr1] = cnt;
     }
-    return console.log(dictTasks);
-  } else {
-    console.error(error);
+    console.log(dictTasks);
   }
 });
